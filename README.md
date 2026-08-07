@@ -1,355 +1,171 @@
-Inventory Management System  
+Inventory Management System
 
+Project Overview
 
-Project Summary  
-================  
+The Inventory Management System was prepared as the final project for the course COMP1006 – Intro to Web Programming Using PHP at Georgian College.
 
-
-The Inventory Management System web application was created as the final project for COMP1006 - Intro to Web Programming Using PHP at Georgian College. 
-
-
-
-
-Website visitors that are not logged in will be referred to as "Public Users". Logged in users that are administrators will be referred to as "Admins". 
-
-
-
-Inventory Management System allows public users to view products that are available. Admins will have access to an admin dashboard that allows them to securely add, update, and delete products, as well as manage users. 
-
-
-
-This application was built using PHP, MySQL, HTML, CSS, and Bootstrap. 
-
----------------  
-
-Tech Stack  
----------  
-
-* HTML5  
-
-* CSS3  
-
-* Bootstrap 5  
-
-* PHP  
-
-* MySQL Database  
-
-* PDO Database Connection  
-
-* GitHub Version Control  
-
----------------  
-
-
-
-Features  
-========  
-
-
-
-
-Public User Features  
---------------------  
-
-* View the homepage  
-* Register an account  
-* View all products  
-* View individual product page  
-* View product image, description, price, and quantity available 
-* Responsive design - Website can be viewed on all screen sizes. 
-
-
-
-
-Admin Features  
---------------  
-
-* Login to the website  
-
-* Logout of the website  
-
-* Access admin dashboard  
-
-* Add a new product  
-
-* Update existing products  
-
-* Delete products  
-
-* View all registered users  
-
-* Update user info  
-
-* Delete users  
-
-
-
-
-CRUD Functionality  
-==================  
-
-
-
-Products  
---------  
-
-**Create**  
-
-* Product name  
-
-* Product description  
-
-* Product price  
-
-* Quantity of inventory  
-
-* Product image  
-
-
-
-
-**Read**  
-
-* View all products  
-
-* View individual product info  
-
-
-
-
-**Update**  
-
-* Product name  
-
-* Product description  
-
-* Product price  
-
-* Product quantity  
-
-
-
-
-**Delete**  
-
-* Delete existing product from the database  
-
-
-
-
-Users  
------  
-
-**Create**  
-
-* Register as an Administrator via registration page.  
-
-**Read**  
-
-* View all Registered Users.  
-
-**Update**  
-
-* User's first name  
-
-* User's last name  
-
-* User's email  
-
-**Delete**  
-
-* Delete existing user from the database.
-  Management of Users
-
-Make
-
-The registration page allows new administrators to register.
-
-Go through
-
-Every registered user is visible to administrators.
-
-An update
-
-User data can be updated by administrators:
-* Initial name
-* Last name
-* Email
-
-Remove
-
-Users can be removed from the system by administrators.
+Visitors are able to browse the products without having to log in, and administrators can log in securely in order to manage both products and users using the full CRUD (Create, Read, Update, Delete) functionality.
 
 ---
 
-Features for Security
+Technologies Used
 
-The application consists of:
-* PHP password_hash() is used to hash passwords.
-* Password verification with password_verify()
-* Verifying duplicate emails when registering
-* Verification of login
-* Admin pages that are protected
-* Validation of the form prior to database insertion
+* HTML5
+* CSS3
+* Bootstrap 5
+* PHP
+* MySQL
+* PDO
+* Git & GitHub
 
 ---
 
-Database Details
+Features
 
-Name of Database:
+Public Users
+
+* View the homepage
+* Register a new admin account
+* View all available products
+* View individual product details
+* Browse product images, prices, descriptions, and inventory quantity
+
+Administrator
+
+After logging in, administrators can:
+
+* Access the dashboard
+* Add new products
+* Edit products
+* Delete products
+* View registered users
+* Edit user information
+* Delete users
+* Logout securely
+
+---
+
+Database
+
+Database Name
 
 inventory_system
 
-There are two tables in the database:
+Tables
 
-Table of Administration
+* admins
+* products
 
-keeps administrator data:
-* ID
-* Initial Name
-* Last Name
-* Email
-* The password
-* Date of Registration
+Database file:
 
-Table of Products
-
-retains product data:
-* ID
-* Name of Product
-* Synopsis
-* Cost
-* Amount
-* Picture
-* Date of Creation
-
-Location of the database file:
-
-Inventory.sql
----
-
-Installation Guidelines
-
-Step 1: Set up XAMPP
-
-Install XAMPP after downloading it.
-
-Begin:
-* Apache
-* MySQL
+sql/inventory.sql
 
 ---
 
-Step 2: Include Project
-Step 2: Include the Project Folder
+Installation
 
-Place your project folder inside the folder where the XAMPP htdocs folder is located.
+1. Download the Project
 
-For example:
+Get the repository or obtain the ZIP file.
 
-C:\xampp\htdocs\inventory-system
+GitHub Repository:
 
-Step Three: Establish a Database
+https://github.com/navpreetchahal5504-hue/php-main-project
 
-Launch phpMyAdmin:
+---
+
+Put the Project into XAMPP.
+
+Copy the project folder into:
+
+C:\xampp\htdocs\php-main-project
+
+---
+
+3. Create the Database
+
+Begin the Apache and MySQL programs that are part of XAMPP.
+
+Open phpMyAdmin:
 
 http://localhost/phpmyadmin
 
-Import the database file:
+Create a database named:
 
-Inventory.sql
+inventory_system
 
-Step 4: Set Up the Database Connection
+Import:
 
-Open
+sql/inventory.sql
+
+---
+
+4. Configure the Database
+
+Open:
 
 includes/config.php
 
-If needed, change the database settings:
+Verify the settings:
 
-DB_HOST is localhost.
+define("DB_HOST","localhost");
+define("DB_NAME","inventory_system");
+define("DB_USER","root");
+define("DB_PASS","");
 
-Set DB_NAME to inventory system.
+---
 
-DB_USER is root.
+5. Run the Project
 
-DB_PASS = “”inventory_system 
+Open your browser and visit:
 
-DB_USER = root 
+http://localhost/php-main-project
 
-DB_PASS = "" 
+---
 
---- 
+CRUD Functionality
 
-Step 5: Run Project 
+Products
 
-Visit Your Project Through Browser: 
+* Create new products
+* View all products
+* View individual product details
+* Update product information
+* Delete products
 
-http://localhost/invnetory-system 
+Users
+
+* Register new administrators
+* View users
+* Update user information
+* Delete users
+
+---
+
+Security
+
+* Password hashing using password_hash()
+* Password verification using password_verify()
+* Duplicate email validation
+* Session-based authentication
+* Protected admin pages
+* Server-side form validation
+
+---
 
 
---- 
+Author
 
-Folder Structure: 
+Navpreet Kaur
 
-inventory-system/ 
-│ 
-├── index.php 
-├── register.php 
-├── login.php 
-├── logout.php 
-├── products.php 
-├── product.php 
-├── dashboard.php 
-├── add-product.php 
-├── edit-product.php 
-├── delete-product.php 
-├── users.php 
-├── edit-user.php 
-├── delete-user.php 
-│ 
-├── includes/ 
-│ ├── config.php 
-│ ├── Database.php 
-│ ├── Crud.php 
-│ ├── header.php 
-│ └── footer.php 
-│ 
-├── css/ 
-│ └── style.css 
-│ 
-├── sql/ 
-│ └── inventory.sql 
-│ 
-├── uploads/ 
-│ 
-└── README.md Course Information
-
-Course:
-
-COMP1006 - Intro to Web Programming Using PHP
-
-Program:
-
-Interactive Media Design - Web
-
-College:
+Interactive Media Design – Web
 
 Georgian College
 
 ---
 
-Developer
+Course
 
-Name:
+COMP1006 – Intro to Web Programming Using PHP
 
-Your Name:Navpreet Kaur
-
-Year:
-
-2026
-
-
-
-
+Final Project – Inventory Management System
